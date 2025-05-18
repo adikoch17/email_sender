@@ -542,7 +542,7 @@ if st.button("Generate Email Template"):
     st.session_state['generated_html'] = generated_html
     # Display the generated HTML
     st.subheader("Generated HTML Email Preview")
-    components.html(generated_html, height=600, scrolling=True, width=None)
+    
 
     # Optional: Add a download button for the HTML
     st.download_button(
@@ -551,6 +551,9 @@ if st.button("Generate Email Template"):
         file_name="apac_rwe_update.html",
         mime="text/html"
     )
+
+if 'generated_html' in st.session_state:
+        components.html(st.session_state.generated_html, height=800, scrolling=True, width=None)
 
 if "recipient_email" not in st.session_state:
     st.session_state.recipient_email = ""
