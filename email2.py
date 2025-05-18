@@ -9,7 +9,6 @@ from email.mime.text import MIMEText
 
 sender_email = "aditya.tempbs@gmail.com"
 sender_password = "lzrfuvdimoerhlkr "  # See note below about app passwords
-recipient_email = "adityako@bu.edu"
 subject = "Test HTML Email"
        
 
@@ -568,7 +567,7 @@ if st.session_state.recipient_email!="":
                 try:
                     if 'generated_html' in st.session_state:
                         print("button_press")
-                        send_html_email(sender_email, sender_password, recipient_email, subject, st.session_state.generated_html)
+                        send_html_email(sender_email, sender_password, st.session_state.recipient_email, subject, st.session_state.generated_html)
                         st.warning('email sent!', icon="👌")
                     else:
                         print("no_html")
